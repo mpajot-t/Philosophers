@@ -16,6 +16,7 @@
 # include <stdio.h>
 # include <unistd.h>
 # include <pthread.h>
+# include <sys/time.h> 
 
 typedef struct s_philo
 {
@@ -30,5 +31,5 @@ typedef struct s_philo
 	
 }	t_philo;
 
-int	check_args(char **args);
+int	check_params(char **args);
 #endif

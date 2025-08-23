@@ -1,24 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   philo_routine.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mpajot-t <mpajot-t@student.42.fr>          +#+  +:+       +#+        */
+/*   By: mpajot-t <mpajot-t@student.42perpignan.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/08/20 10:23:58 by mpajot-t          #+#    #+#             */
-/*   Updated: 2025/08/21 11:23:14 by mpajot-t         ###   ########.fr       */
+/*   Created: 2025/08/23 10:18:12 by mpajot-t          #+#    #+#             */
+/*   Updated: 2025/08/23 10:18:12 by mpajot-t         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "includes/philosophers.h"
-
-int main(int argc, char **argv)
-{
-	if (argc < 5 || argc > 6)
-		return (0);
-	if (check_params(argv))
-		return (0);
-	else
-		printf("hey");
-	return (0);
-}
