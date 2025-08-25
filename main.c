@@ -20,7 +20,7 @@ int main(int argc, char **argv)
 
 	if (argc < 5 || argc > 6)
 		return (0);
-	if (check_args(argv) == 0)
+	if (check_params(argv))
 		return (0);
 	initialize_philos(philos, forks, &program, argv);
 	initialize_data(&program, philos);
