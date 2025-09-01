@@ -53,7 +53,9 @@ typedef struct s_data
 }	t_data;
 
 int		check_args(char **args);
+int		check_params(char **args);
 int		ft_atoi(char *nptr);
 void	initialize_data(t_data *program, t_philo *philos);
 void	initialize_philos(t_philo *philos, pthread_mutex_t *forks, t_data *program, char **args);
+void	initialize_forks(pthread_mutex_t *forks, int nb_philo);
 #endif

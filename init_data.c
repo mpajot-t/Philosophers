@@ -57,3 +57,15 @@ void	initialize_philos(t_philo *philos, pthread_mutex_t *forks, t_data *program,
 			philos[i].right_fork = &forks[i - 1];
 	}
 }
+
+void	initialize_forks(pthread_mutex_t *forks, int nb_philo)
+{
+	int	i;
+
+	i = 0;
+	while (i < nb_philo)
+	{
+		pthread_mutex_init(&forks[i], NULL);
+		i++;
+	}
+}

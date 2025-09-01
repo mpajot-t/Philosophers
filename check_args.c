@@ -72,4 +72,5 @@ int	check_params(char **args)
 		return(write(2, "Time to sleep is invalid", 23), 1);
 	else if (args[5] && args[5] <= 0 || check_args(args[5] == 1))
 		return(write(2, "Number of times each philo must eat is invalid", 47), 1);
+	return (0);
 }

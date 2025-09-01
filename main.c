@@ -19,9 +19,11 @@ int main(int argc, char **argv)
 	pthread_mutex_t	forks[MAX_PHILO];
 
 	if (argc < 5 || argc > 6)
-		return (0);
+		return (printf("Nombre d'arguments invalide"), 1);
 	if (check_params(argv))
-		return (0);
+		return (1);
+	initialize_forks(&forks, ft_atoi(argv[1]));
 	initialize_philos(philos, forks, &program, argv);
 	initialize_data(&program, philos);
+	return (0);
 }
