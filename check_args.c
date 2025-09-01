@@ -46,7 +46,7 @@ static int	ft_isdigit(int c)
 		return (0);
 }
 
-int	check_args(char *args)
+int	check_args(char **args)
 {
 	int	i;
 

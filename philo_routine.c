@@ -12,7 +12,7 @@
 
 #include "includes/philosophers.h"
 
-int	check_if_dead(t_philo *philo)
+int	check_if_dead_loop(t_philo *philo)
 {
 	pthread_mutex_lock(philo->dead_lock);
 	if (*philo->dead == 1)
@@ -36,7 +36,7 @@ void	sleep(t_philo *philo)
 
 void	think(t_philo *philo)
 {
-	printf
+	
 }
 
 void *routine(void *arg)
