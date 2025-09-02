@@ -14,7 +14,7 @@
 
 int main(int argc, char **argv)
 {
-	t_data			program;
+	t_data			data;
 	t_philo			philos[MAX_PHILO];
 	pthread_mutex_t	forks[MAX_PHILO];
 
@@ -23,7 +23,9 @@ int main(int argc, char **argv)
 	if (check_params(argv))
 		return (1);
 	initialize_forks(&forks, ft_atoi(argv[1]));
-	initialize_philos(philos, forks, &program, argv);
-	initialize_data(&program, philos);
+	initialize_philos(philos, forks, &data, argv);
+	initialize_data(&data, philos);
+	initliaze_threads(&data, forks);
+	destroy_all(NULL, &data, forks);
 	return (0);
 }

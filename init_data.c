@@ -12,13 +12,13 @@
 
 #include "includes/philosophers.h"
 
-void	initialize_data(t_data *program, t_philo *philos)
+void	initialize_data(t_data *data, t_philo *philos)
 {
-	program->dead_flag = 0;
-	program->philos = philos;
-	pthread_mutex_init(&program->dead_lock, NULL);
-	pthread_mutex_init(&program->write_lock, NULL);
-	pthread_mutex_init(&program->meal_lock, NULL);
+	data->dead_flag = 0;
+	data->philos = philos;
+	pthread_mutex_init(&data->dead_lock, NULL);
+	pthread_mutex_init(&data->write_lock, NULL);
+	pthread_mutex_init(&data->meal_lock, NULL);
 }
 
 static void	init_args(t_philo *philos, char **args)
