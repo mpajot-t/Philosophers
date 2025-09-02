@@ -38,15 +38,7 @@ int	ft_atoi(char *nptr)
 	return (num * sign);
 }
 
-static int	ft_isdigit(int c)
-{
-	if (c >= '0' && c <= '9')
-		return (1);
-	else
-		return (0);
-}
-
-int	check_args(char *args)
+static int	check_args(char *args)
 {
 	int	i;
 
@@ -62,14 +54,15 @@ int	check_args(char *args)
 
 int	check_params(char **args)
 {
-	if (args[1] <= 0 || check_args(args[1]) == 1)
+	if (ft_atoi(args[1]) <= 0 || ft_atoi(args[1]) > MAX_PHILO || check_args(args[1]) == 1)
 		return(write(2, "Philo numbers is invalid", 25), 1);
-	else if (args[2] <= 0 || check_args(args[2] == 1))
+	else if (ft_atoi(args[2]) <= 0 || check_args(args[2]) == 1)
 		return(write(2, "Time to die is invalid", 23), 1);
-	else if (args[3] <= 0 || check_args(args[3] == 1))
+	else if (ft_atoi(args[3]) <= 0 || check_args(args[3]) == 1)
 		return(write(2, "Time to eat is invalid", 23), 1);
-	else if (args[4] <= 0 || check_args(args[4] == 1))
+	else if (ft_atoi(args[4]) <= 0 || check_args(args[4]) == 1)
 		return(write(2, "Time to sleep is invalid", 23), 1);
-	else if (args[5] && args[5] <= 0 || check_args(args[5] == 1))
+	else if (args[5] && (ft_atoi(args[5]) < 0 || check_args(args[5]) == 1))
 		return(write(2, "Number of times each philo must eat is invalid", 47), 1);
+	return (0);
 }

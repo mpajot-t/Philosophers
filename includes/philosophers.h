@@ -6,7 +6,7 @@
 /*   By: mpajot-t <mpajot-t@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/20 10:23:40 by mpajot-t          #+#    #+#             */
-/*   Updated: 2025/08/27 10:24:44 by mpajot-t         ###   ########.fr       */
+/*   Updated: 2025/09/02 10:41:59 by mpajot-t         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,10 +52,17 @@ typedef struct s_data
 	
 }	t_data;
 
-int		check_args(char **args);
+int		check_params(char **args);
 int		ft_atoi(char *nptr);
-void	initialize_data(t_data *program, t_philo *philos);
-void	initialize_philos(t_philo *philos, pthread_mutex_t *forks, t_data *program, char **args);
-int		ft_usleep(size_t milliseconds);
 size_t	get_current_time();
+int		ft_usleep(size_t milliseconds);
+void	initialize_data(t_data *data, t_philo *philos);
+void	initialize_philos(t_philo *philos, pthread_mutex_t *forks, t_data *program, char **args);
+void	initialize_forks(pthread_mutex_t *forks, int nb_philo);
+void 	*routine(void *pointer);
+int		check_if_dead_loop(t_philo *philo);
+int		initliaze_threads(t_data *data, pthread_mutex_t *forks);
+void	*overseer(void *pointer);
+void	prog_message(char *str, t_philo *philo, int id);
+void	destroy_all(char *str, t_data *data, pthread_mutex_t *forks);
 #endif

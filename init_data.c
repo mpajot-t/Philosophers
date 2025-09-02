@@ -12,23 +12,23 @@
 
 #include "includes/philosophers.h"
 
-void	initialize_data(t_data *program, t_philo *philos)
+void	initialize_data(t_data *data, t_philo *philos)
 {
-	program->dead_flag = 0;
-	program->philos = philos;
-	pthread_mutex_init(&program->dead_lock, NULL);
-	pthread_mutex_init(&program->write_lock, NULL);
-	pthread_mutex_init(&program->meal_lock, NULL);
+	data->dead_flag = 0;
+	data->philos = philos;
+	pthread_mutex_init(&data->dead_lock, NULL);
+	pthread_mutex_init(&data->write_lock, NULL);
+	pthread_mutex_init(&data->meal_lock, NULL);
 }
 
 static void	init_args(t_philo *philos, char **args)
 {
-	philos->num_of_philos = args[1];
-	philos->time_to_die = args[2];
-	philos->time_to_eat = args[3];
-	philos->time_to_sleep = args[4];
+	philos->num_of_philos = ft_atoi(args[1]);
+	philos->time_to_die = ft_atoi(args[2]);
+	philos->time_to_eat = ft_atoi(args[3]);
+	philos->time_to_sleep = ft_atoi(args[4]);
 	if (args[5])
-		philos->num_to_eat = args[5];
+		philos->num_to_eat = ft_atoi(args[5]);
 	else
 		philos->num_to_eat = 0;
 }
@@ -55,5 +55,17 @@ void	initialize_philos(t_philo *philos, pthread_mutex_t *forks, t_data *program,
 			philos[i].right_fork = &forks[philos[i].num_of_philos - 1];
 		else
 			philos[i].right_fork = &forks[i - 1];
+	}
+}
+
+void	initialize_forks(pthread_mutex_t *forks, int nb_philo)
+{
+	int	i;
+
+	i = 0;
+	while (i < nb_philo)
+	{
+		pthread_mutex_init(&forks[i], NULL);
+		i++;
 	}
 }
