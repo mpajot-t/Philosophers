@@ -6,7 +6,7 @@
 /*   By: mpajot-t <mpajot-t@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/25 10:41:04 by mpajot-t          #+#    #+#             */
-/*   Updated: 2025/08/25 11:19:15 by mpajot-t         ###   ########.fr       */
+/*   Updated: 2025/09/02 13:08:35 by mpajot-t         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ static void	init_args(t_philo *philos, char **args)
 	if (args[5])
 		philos->num_to_eat = ft_atoi(args[5]);
 	else
-		philos->num_to_eat = 0;
+		philos->num_to_eat = -1;
 }
 
 void	initialize_philos(t_philo *philos, pthread_mutex_t *forks, t_data *program, char **args)
@@ -40,7 +40,7 @@ void	initialize_philos(t_philo *philos, pthread_mutex_t *forks, t_data *program,
 	i = 0;
 	while (i < ft_atoi(args[1]))
 	{
-		philos[i].phil_id = i;
+		philos[i].phil_id = i + 1;
 		philos[i].write_lock = &program->write_lock;
 		philos[i].dead_lock = &program->dead_lock;
 		philos[i].meal_lock = &program->meal_lock;
@@ -55,6 +55,7 @@ void	initialize_philos(t_philo *philos, pthread_mutex_t *forks, t_data *program,
 			philos[i].right_fork = &forks[philos[i].num_of_philos - 1];
 		else
 			philos[i].right_fork = &forks[i - 1];
+		i++;
 	}
 }
 

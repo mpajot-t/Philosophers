@@ -6,7 +6,7 @@
 /*   By: mpajot-t <mpajot-t@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/20 10:23:40 by mpajot-t          #+#    #+#             */
-/*   Updated: 2025/09/02 10:41:59 by mpajot-t         ###   ########.fr       */
+/*   Updated: 2025/09/02 13:00:40 by mpajot-t         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ typedef struct s_philo
 	int					num_of_philos;
 	int					meals_eaten;
 	int					eating;
-	int					last_meal;
+	size_t					last_meal;
 	int					phil_id;
 	size_t				start_time;
 	size_t				time_to_die;

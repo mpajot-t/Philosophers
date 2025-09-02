@@ -6,7 +6,7 @@
 /*   By: mpajot-t <mpajot-t@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/20 10:23:58 by mpajot-t          #+#    #+#             */
-/*   Updated: 2025/08/25 11:26:29 by mpajot-t         ###   ########.fr       */
+/*   Updated: 2025/09/02 10:54:09 by mpajot-t         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,9 +22,9 @@ int main(int argc, char **argv)
 		return (printf("Nombre d'arguments invalide"), 1);
 	if (check_params(argv))
 		return (1);
+	initialize_data(&data, philos);
 	initialize_forks(forks, ft_atoi(argv[1]));
 	initialize_philos(philos, forks, &data, argv);
-	initialize_data(&data, philos);
 	initliaze_threads(&data, forks);
 	destroy_all(NULL, &data, forks);
 	return (0);

@@ -6,7 +6,7 @@
 /*   By: mpajot-t <mpajot-t@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/23 10:18:12 by mpajot-t          #+#    #+#             */
-/*   Updated: 2025/09/02 10:41:38 by mpajot-t         ###   ########.fr       */
+/*   Updated: 2025/09/02 13:10:06 by mpajot-t         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,6 +51,7 @@ void	eat(t_philo *philo)
 void	ft_sleep(t_philo *philo)
 {
 	prog_message("is sleeping", philo, philo->phil_id);
+	ft_usleep(philo->time_to_sleep);
 }
 
 void	think(t_philo *philo)
