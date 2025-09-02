@@ -6,7 +6,7 @@
 /*   By: mpajot-t <mpajot-t@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/20 10:23:40 by mpajot-t          #+#    #+#             */
-/*   Updated: 2025/08/25 11:28:49 by mpajot-t         ###   ########.fr       */
+/*   Updated: 2025/08/27 10:24:44 by mpajot-t         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,4 +56,6 @@ int		check_args(char **args);
 int		ft_atoi(char *nptr);
 void	initialize_data(t_data *program, t_philo *philos);
 void	initialize_philos(t_philo *philos, pthread_mutex_t *forks, t_data *program, char **args);
+int		ft_usleep(size_t milliseconds);
+size_t	get_current_time();
 #endif

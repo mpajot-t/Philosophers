@@ -1,21 +1,14 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   philo_routine.c                                    :+:      :+:    :+:   */
+/*   monitor.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mpajot-t <mpajot-t@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/08/23 10:18:12 by mpajot-t          #+#    #+#             */
-/*   Updated: 2025/08/27 10:23:28 by mpajot-t         ###   ########.fr       */
+/*   Created: 2025/08/27 10:26:28 by mpajot-t          #+#    #+#             */
+/*   Updated: 2025/08/27 10:26:41 by mpajot-t         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "includes/philosophers.h"
 
-void	philo_routine(t_data *program, pthread_mutex_t *forks)
-{
-	while (program->dead_flag != 1)
-	{
-		
-	}
-}
