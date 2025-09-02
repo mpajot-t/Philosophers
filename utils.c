@@ -6,7 +6,7 @@
 /*   By: mpajot-t <mpajot-t@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/25 11:21:00 by mpajot-t          #+#    #+#             */
-/*   Updated: 2025/09/02 12:35:08 by mpajot-t         ###   ########.fr       */
+/*   Updated: 2025/09/02 13:32:22 by mpajot-t         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ int	ft_usleep(size_t milliseconds)
 
 	start = get_current_time();
 	while ((get_current_time() - start) < milliseconds)
-		usleep(500);
+		usleep(100);
 	return (0);
 }
 

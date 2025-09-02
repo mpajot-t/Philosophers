@@ -3,14 +3,30 @@
 /*                                                        :::      ::::::::   */
 /*   threads.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mpajot-t <mpajot-t@student.42perpignan.    +#+  +:+       +#+        */
+/*   By: mpajot-t <mpajot-t@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/01 17:48:08 by mpajot-t          #+#    #+#             */
-/*   Updated: 2025/09/01 17:48:08 by mpajot-t         ###   ########.fr       */
+/*   Updated: 2025/09/02 13:57:04 by mpajot-t         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "includes/philosophers.h"
+
+void *routine(void *pointer)
+{
+	t_philo	*philo;
+
+	philo = (t_philo *)pointer;
+	if (philo->phil_id % 2 == 0)
+		ft_usleep(1);
+	while (!check_if_dead_loop(philo))
+	{
+		eat(philo);
+		ft_sleep(philo);
+		think(philo);
+	}
+	return (pointer);
+}
 
 int	initliaze_threads(t_data *data, pthread_mutex_t *forks)
 {

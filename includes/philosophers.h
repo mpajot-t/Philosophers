@@ -6,7 +6,7 @@
 /*   By: mpajot-t <mpajot-t@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/20 10:23:40 by mpajot-t          #+#    #+#             */
-/*   Updated: 2025/09/02 13:00:40 by mpajot-t         ###   ########.fr       */
+/*   Updated: 2025/09/02 13:56:51 by mpajot-t         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,6 +63,9 @@ void 	*routine(void *pointer);
 int		check_if_dead_loop(t_philo *philo);
 int		initliaze_threads(t_data *data, pthread_mutex_t *forks);
 void	*overseer(void *pointer);
+void	eat(t_philo *philo);
+void	ft_sleep(t_philo *philo);
+void	think(t_philo *philo);
 void	prog_message(char *str, t_philo *philo, int id);
 void	destroy_all(char *str, t_data *data, pthread_mutex_t *forks);
 #endif

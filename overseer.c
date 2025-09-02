@@ -6,7 +6,7 @@
 /*   By: mpajot-t <mpajot-t@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/01 16:04:41 by mpajot-t          #+#    #+#             */
-/*   Updated: 2025/09/02 12:34:09 by mpajot-t         ###   ########.fr       */
+/*   Updated: 2025/09/02 13:43:30 by mpajot-t         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,6 +88,7 @@ void	*overseer(void *pointer)
 	{
 		if (check_if_dead(philo) == 1 || check_if_ate(philo) == 1)
 			break ;
+		usleep(5000);
 	}
 	return (pointer);
 }

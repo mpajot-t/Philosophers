@@ -6,7 +6,7 @@
 /*   By: mpajot-t <mpajot-t@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/23 10:18:12 by mpajot-t          #+#    #+#             */
-/*   Updated: 2025/09/02 13:10:06 by mpajot-t         ###   ########.fr       */
+/*   Updated: 2025/09/02 14:02:09 by mpajot-t         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,17 +24,35 @@ int	check_if_dead_loop(t_philo *philo)
 	return (0);
 }
 
+static void	take_forks_by_order(t_philo *philo, pthread_mutex_t **first_fork, pthread_mutex_t **second_fork)
+{
+	if (philo->left_fork < philo->right_fork)
+	{
+		*first_fork = philo->left_fork;
+		*second_fork = philo->right_fork;
+	}
+	else
+	{
+		*first_fork = philo->right_fork;
+		*second_fork = philo->left_fork;
+	}
+}
+
 void	eat(t_philo *philo)
 {
-	pthread_mutex_lock(philo->right_fork);
+	pthread_mutex_t	*first_fork;
+	pthread_mutex_t	*second_fork;
+
+	take_forks_by_order(philo, &first_fork, &second_fork);
+	pthread_mutex_lock(first_fork);
 	prog_message("has taken a fork", philo, philo->phil_id);
 	if (philo->num_of_philos == 1)
 	{
 		ft_usleep(philo->time_to_die);
-		pthread_mutex_unlock(philo->right_fork);
+		pthread_mutex_unlock(first_fork);
 		return ;
 	}
-	pthread_mutex_lock(philo->left_fork);
+	pthread_mutex_lock(second_fork);
 	prog_message("has taken a fork", philo, philo->phil_id);
 	philo->eating = 1;
 	prog_message("is eating", philo, philo->phil_id);
@@ -44,8 +62,8 @@ void	eat(t_philo *philo)
 	pthread_mutex_unlock(philo->meal_lock);
 	ft_usleep(philo->time_to_eat);
 	philo->eating = 0;
-	pthread_mutex_unlock(philo->left_fork);
-	pthread_mutex_unlock(philo->right_fork);
+	pthread_mutex_unlock(second_fork);
+	pthread_mutex_unlock(first_fork);
 }
 
 void	ft_sleep(t_philo *philo)
@@ -57,20 +75,4 @@ void	ft_sleep(t_philo *philo)
 void	think(t_philo *philo)
 {
 	prog_message("is thinking", philo, philo->phil_id);
-}
-
-void *routine(void *pointer)
-{
-	t_philo	*philo;
-
-	philo = (t_philo *)pointer;
-	if (philo->phil_id % 2 == 0)
-		ft_usleep(1);
-	while (!check_if_dead_loop(philo))
-	{
-		eat(philo);
-		ft_sleep(philo);
-		think(philo);
-	}
-	return (pointer);
 }
