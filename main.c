@@ -22,7 +22,7 @@ int main(int argc, char **argv)
 		return (printf("Nombre d'arguments invalide"), 1);
 	if (check_params(argv))
 		return (1);
-	initialize_forks(&forks, ft_atoi(argv[1]));
+	initialize_forks(forks, ft_atoi(argv[1]));
 	initialize_philos(philos, forks, &data, argv);
 	initialize_data(&data, philos);
 	initliaze_threads(&data, forks);

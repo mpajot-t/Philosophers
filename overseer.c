@@ -12,13 +12,13 @@
 
 #include "includes/philosophers.h"
 
-void	prog_message(char	*str, int id, t_philo *philo)
+void	prog_message(char *str, t_philo *philo, int id)
 {
 	size_t	time;
 
 	pthread_mutex_lock(philo->write_lock);
 	time = get_current_time();
-	if (!check_if_dead(philo))
+	if (!check_if_dead_loop(philo))
 		printf("%zu %d %s\n", time, id, str);
 	pthread_mutex_unlock(philo->write_lock);
 }

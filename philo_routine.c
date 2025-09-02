@@ -48,7 +48,7 @@ void	eat(t_philo *philo)
 	pthread_mutex_unlock(philo->right_fork);
 }
 
-void	sleep(t_philo *philo)
+void	ft_sleep(t_philo *philo)
 {
 	prog_message("is sleeping", philo, philo->phil_id);
 }
@@ -58,15 +58,18 @@ void	think(t_philo *philo)
 	prog_message("is thinking", philo, philo->phil_id);
 }
 
-void *routine(void *arg)
+void *routine(void *pointer)
 {
 	t_philo	*philo;
 
-	philo = (t_philo *)arg;
-	while (!check_if_dead(philo))
+	philo = (t_philo *)pointer;
+	if (philo->phil_id % 2 == 0)
+		ft_usleep(1);
+	while (!check_if_dead_loop(philo))
 	{
 		eat(philo);
-		sleep(philo);
+		ft_sleep(philo);
 		think(philo);
 	}
+	return (pointer);
 }

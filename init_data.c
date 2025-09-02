@@ -23,12 +23,12 @@ void	initialize_data(t_data *data, t_philo *philos)
 
 static void	init_args(t_philo *philos, char **args)
 {
-	philos->num_of_philos = args[1];
-	philos->time_to_die = args[2];
-	philos->time_to_eat = args[3];
-	philos->time_to_sleep = args[4];
+	philos->num_of_philos = ft_atoi(args[1]);
+	philos->time_to_die = ft_atoi(args[2]);
+	philos->time_to_eat = ft_atoi(args[3]);
+	philos->time_to_sleep = ft_atoi(args[4]);
 	if (args[5])
-		philos->num_to_eat = args[5];
+		philos->num_to_eat = ft_atoi(args[5]);
 	else
 		philos->num_to_eat = 0;
 }

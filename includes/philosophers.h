@@ -52,7 +52,6 @@ typedef struct s_data
 	
 }	t_data;
 
-int		check_args(char **args);
 int		check_params(char **args);
 int		ft_atoi(char *nptr);
 size_t	get_current_time();
@@ -60,10 +59,10 @@ int		ft_usleep(size_t milliseconds);
 void	initialize_data(t_data *data, t_philo *philos);
 void	initialize_philos(t_philo *philos, pthread_mutex_t *forks, t_data *program, char **args);
 void	initialize_forks(pthread_mutex_t *forks, int nb_philo);
-void 	*routine(void *arg);
+void 	*routine(void *pointer);
 int		check_if_dead_loop(t_philo *philo);
 int		initliaze_threads(t_data *data, pthread_mutex_t *forks);
 void	*overseer(void *pointer);
-void	prog_message(char	*str, int id, t_philo *philo);
+void	prog_message(char *str, t_philo *philo, int id);
 void	destroy_all(char *str, t_data *data, pthread_mutex_t *forks);
 #endif
